@@ -15,12 +15,14 @@ export type Product = {
   detail: string;
   priceNote: string;
   art: 'logo-mount' | 'cutout' | 'led' | 'magnet' | 'divine' | 'returngift' | 'corporate';
+  photo?: string;
   featured?: boolean;
 };
 
 export const LINES = [
   {
     id: 'logo-mounts',
+    photo: '/products/logo-mounts.jpg',
     name: 'Acrylic Logo Mounts',
     tagline: 'Our hero product. From Rs 599.',
     blurb:
@@ -29,6 +31,7 @@ export const LINES = [
   },
   {
     id: 'cutout-frames',
+    photo: '/products/cutout-frame.jpg',
     name: 'Cutout Acrylic Frames',
     tagline: 'Statement pieces, up to 1 ft x 2 ft.',
     blurb:
@@ -45,6 +48,7 @@ export const LINES = [
   },
   {
     id: 'magnets',
+    photo: '/products/fridge-magnets.jpg',
     name: 'Fridge Magnets',
     tagline: 'Small gifts, big smiles.',
     blurb:
@@ -53,6 +57,7 @@ export const LINES = [
   },
   {
     id: 'divine',
+    photo: '/products/divine.jpg',
     name: 'Divine Collection',
     tagline: 'Lord Venkateshwara Swamy acrylic art.',
     blurb:
@@ -61,6 +66,7 @@ export const LINES = [
   },
   {
     id: 'return-gifts',
+    photo: '/products/return-gifts.jpg',
     name: 'Return Gifts',
     tagline: 'Weddings, birthdays, housewarmings.',
     blurb:
@@ -80,6 +86,7 @@ export const LINES = [
 export const PRODUCTS: Product[] = [
   {
     id: 'premium-logo-mount',
+  photo: '/products/logo-mounts.jpg',
     name: 'Premium Acrylic Logo Mount',
     line: 'logo-mounts',
     blurb: 'Your business logo in raised 3D acrylic.',
@@ -91,6 +98,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'cutout-statement-frame',
+  photo: '/products/cutout-frame.jpg',
     name: 'Cutout Acrylic Photo Frame',
     line: 'cutout-frames',
     blurb: 'Bold 1 ft x 2 ft statement pieces.',
@@ -113,6 +121,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'acrylic-fridge-magnets',
+  photo: '/products/fridge-magnets.jpg',
     name: 'Custom Acrylic Fridge Magnets',
     line: 'magnets',
     blurb: 'Photo magnets in any shape.',
@@ -124,17 +133,19 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'venkateshwara-art',
+  photo: '/products/divine.jpg',
     name: 'Lord Venkateshwara Swamy Acrylic Art',
     line: 'divine',
     blurb: 'Divine art for puja rooms.',
     detail:
-      'Premium acrylic art of Lord Venkateshwara Swamy, crafted for puja rooms and prayer corners. Rich golden tones on deep maroon, finished with a radiant divine glow. A sacred centrepiece for your home.',
+      'Premium acrylic art of Lord Venkateshwara Swamy, crafted for puja rooms and prayer corners. Rich golden tones on deep forest green, finished with a radiant divine glow. A sacred centrepiece for your home.',
     priceNote: 'Premium devotional finish, made with devotion.',
     art: 'divine',
     featured: true,
   },
   {
     id: 'wedding-return-gifts',
+  photo: '/products/return-gifts.jpg',
     name: 'Wedding Return Gifts',
     line: 'return-gifts',
     blurb: 'Keepsakes your guests will treasure.',
@@ -156,6 +167,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'birthday-return-gifts',
+  photo: '/products/return-gifts.jpg',
     name: 'Birthday Return Gifts',
     line: 'return-gifts',
     blurb: 'Party favours kids and adults love.',
@@ -166,6 +178,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'housewarming-gifts',
+  photo: '/products/divine.jpg',
     name: 'Housewarming Return Gifts',
     line: 'return-gifts',
     blurb: 'Blessings your guests take home.',

@@ -8,21 +8,25 @@ const offerings = [
     t: 'Acrylic logo mounts',
     d: 'Raised 3D logos and letters for reception walls, cabins and shop fronts. Standoff mounted for a floating premium look.',
     art: 'logo-mount',
+    photo: '/products/logo-mounts.jpg',
   },
   {
     t: 'Office name boards',
     d: 'Backlit and non lit name boards for offices, clinics and showrooms. Crisp lettering, clean installation guidance.',
     art: 'led',
+    photo: null,
   },
   {
     t: 'Corporate gift sets',
     d: 'Branded desk name plates, metal card holders, engraved mementos and festive hampers for teams, clients and partners.',
     art: 'corporate',
+    photo: null,
   },
   {
     t: 'Event trophies and mementos',
     d: 'Custom trophies, shields and mementos for annual days, sports meets and award nights, with your logo and text.',
     art: 'corporate',
+    photo: null,
   },
 ];
 ---
@@ -32,7 +36,7 @@ const offerings = [
   description="Premium acrylic logo mounts, office branding and bulk corporate gifts, manufactured factory direct. Bulk pricing for businesses across India."
   path="/business"
 >
-  <section class="relative overflow-hidden bg-maroon-950 py-14 sm:py-20">
+  <section class="relative overflow-hidden bg-forest-950 py-14 sm:py-20">
     <div class="absolute inset-0 opacity-40" style="background: radial-gradient(ellipse 50% 50% at 80% 20%, #c78d3c44, transparent);"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
       <p class="section-eyebrow !text-gold-400"><span class="h-1.5 w-1.5 rounded-full bg-gold-400"></span>For businesses</p>
@@ -50,9 +54,13 @@ const offerings = [
     <div class="grid gap-6 sm:grid-cols-2">
       {offerings.map((o) => (
         <div class="card !p-0 overflow-hidden">
-          <ProductArt art={o.art} class="aspect-[16/7] w-full rounded-b-none" />
+          {o.photo ? (
+            <img src={o.photo} alt={o.t} loading="lazy" class="aspect-[16/7] w-full object-cover" />
+          ) : (
+            <ProductArt art={o.art} class="aspect-[16/7] w-full rounded-b-none" />
+          )}
           <div class="p-6">
-            <h2 class="font-display text-xl font-bold text-maroon-950">{o.t}</h2>
+            <h2 class="font-display text-xl font-bold text-forest-950">{o.t}</h2>
             <p class="mt-2 text-sm leading-relaxed text-stone-600">{o.d}</p>
           </div>
         </div>
@@ -74,7 +82,7 @@ const offerings = [
           ['Pan India delivery', 'Carefully packed and shipped to single or multiple addresses.'],
         ].map(([t, d]) => (
           <div class="card">
-            <h3 class="font-display text-lg font-bold text-maroon-950">{t}</h3>
+            <h3 class="font-display text-lg font-bold text-forest-950">{t}</h3>
             <p class="mt-2 text-sm leading-relaxed text-stone-600">{d}</p>
           </div>
         ))}

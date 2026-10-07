@@ -96,7 +96,7 @@
       const icon = ICONS[e.line] ?? ICONS['cutout'];
       iconEl!.style.background = icon.bg;
       iconEl!.innerHTML = icon.svg;
-      textEl!.innerHTML = `<strong class="font-semibold text-maroon-950">${e.name}</strong> from ${e.city} ordered a <strong class="font-semibold text-maroon-950">${e.product}</strong>`;
+      textEl!.innerHTML = `<strong class="font-semibold text-forest-950">${e.name}</strong> from ${e.city} ordered a <strong class="font-semibold text-forest-950">${e.product}</strong>`;
       timeEl!.textContent = e.time;
       toast!.classList.remove('translate-x-[-120%]', 'opacity-0');
       hideTimer = window.setTimeout(hide, 6000);
