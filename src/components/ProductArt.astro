@@ -1,0 +1,194 @@
+---
+export interface Props {
+  art: string;
+  class?: string;
+}
+const { art, class: cls = '' } = Astro.props;
+const uid = Math.random().toString(36).slice(2, 9);
+---
+
+<div class={`artwrap relative overflow-hidden rounded-2xl ${cls}`} data-art={art}>
+  {art === 'logo-mount' && (
+    <div class="absolute inset-0" style="background: linear-gradient(160deg, #232a3a 0%, #10141f 55%, #1a2233 100%);">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 55% 45% at 50% 18%, rgba(255,214,140,0.22), transparent 70%);"></div>
+      <svg viewBox="0 0 200 140" class="absolute inset-0 h-full w-full" fill="none">
+        <defs>
+          <linearGradient id={`lm-${uid}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f4d998" />
+            <stop offset="0.55" stop-color="#d1a04e" />
+            <stop offset="1" stop-color="#8a5f24" />
+          </linearGradient>
+          <filter id={`lmsh-${uid}`} x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.55" />
+          </filter>
+        </defs>
+        <rect x="18" y="14" width="164" height="112" rx="10" fill="#ffffff" opacity="0.045" />
+        <text x="100" y="82" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="44" fill={`url(#lm-${uid})`} filter={`url(#lmsh-${uid})`} letter-spacing="2">EH</text>
+        <text x="100" y="104" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" letter-spacing="4" fill="#d1a04e" opacity="0.85">ETERNAL HUB</text>
+        {[30, 170].map((x) => [28, 112].map((y) => (
+          <g><circle cx={x} cy={y} r="4" fill="#0d1119" stroke="#d1a04e" stroke-width="1.6" /><circle cx={x} cy={y} r="1.3" fill="#d1a04e" /></g>
+        )))}
+        <ellipse cx="100" cy="126" rx="70" ry="6" fill="#000" opacity="0.35" />
+      </svg>
+    </div>
+  )}
+
+  {art === 'cutout' && (
+    <div class="absolute inset-0" style="background: linear-gradient(150deg, #6d1f2e 0%, #3f1620 60%, #2b0e14 100%);">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 55% at 50% 40%, rgba(209,160,78,0.28), transparent 70%);"></div>
+      <svg viewBox="0 0 200 140" class="absolute inset-0 h-full w-full" fill="none">
+        <defs>
+          <linearGradient id={`co-${uid}`} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffe9b8" />
+            <stop offset="1" stop-color="#c78d3c" />
+          </linearGradient>
+          <filter id={`cosh-${uid}`} x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+          </filter>
+        </defs>
+        <rect x="46" y="18" width="108" height="96" rx="4" fill="#ffffff" opacity="0.06" />
+        <rect x="52" y="24" width="96" height="84" rx="3" stroke={`url(#co-${uid})`} stroke-width="3.5" filter={`url(#cosh-${uid})`} />
+        <path d="M100 34 c-8 10 -22 12 -22 26 c0 12 10 18 22 18 c12 0 22 -6 22 -18 c0 -14 -14 -16 -22 -26z" fill={`url(#co-${uid})`} opacity="0.85" />
+        <text x="100" y="102" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="17" fill="#f4d998">Forever</text>
+        <rect x="78" y="116" width="44" height="6" rx="3" fill="#d1a04e" opacity="0.7" />
+        <text x="164" y="34" font-family="Inter, sans-serif" font-size="8" fill="#f4d998" opacity="0.7" transform="rotate(90 164 34)">1 FT x 2 FT</text>
+      </svg>
+    </div>
+  )}
+
+  {art === 'led' && (
+    <div class="absolute inset-0" style="background: linear-gradient(160deg, #131c2e 0%, #070b16 65%, #0d1526 100%);">
+      <div class="led-aura absolute inset-0"></div>
+      <svg viewBox="0 0 200 140" class="absolute inset-0 h-full w-full" fill="none">
+        <defs>
+          <filter id={`lg-${uid}`} x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="7" result="b" />
+            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        <rect x="62" y="22" width="76" height="76" rx="10" stroke="#ffd98a" stroke-width="3" filter={`url(#lg-${uid})`} opacity="0.95" />
+        <rect x="62" y="22" width="76" height="76" rx="10" fill="#ffd98a" opacity="0.08" />
+        <circle cx="100" cy="50" r="10" fill="#ffe9b8" filter={`url(#lg-${uid})`} />
+        <path d="M76 82 q24 12 48 0" stroke="#ffe9b8" stroke-width="3" stroke-linecap="round" filter={`url(#lg-${uid})`} />
+        <rect x="74" y="102" width="52" height="12" rx="6" fill="#2a3648" stroke="#ffd98a" stroke-width="1.5" opacity="0.95" />
+        <circle cx="100" cy="108" r="2.5" fill="#ffd98a" filter={`url(#lg-${uid})`} />
+      </svg>
+      <style>.led-aura{background:radial-gradient(ellipse 45% 38% at 50% 42%, rgba(255,217,138,0.35), transparent 70%);animation:ledpulse 3.2s ease-in-out infinite;}@keyframes ledpulse{0%,100%{opacity:0.75}50%{opacity:1}}</style>
+    </div>
+  )}
+
+  {art === 'magnet' && (
+    <div class="absolute inset-0" style="background: linear-gradient(150deg, #8a3b22 0%, #4a1f10 60%, #331407 100%);">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 55% 45% at 30% 25%, rgba(245,237,214,0.18), transparent 65%);"></div>
+      <svg viewBox="0 0 200 140" class="absolute inset-0 h-full w-full" fill="none">
+        <defs>
+          <filter id={`mgsh-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.5" />
+          </filter>
+        </defs>
+        <g filter={`url(#mgsh-${uid})`} transform="rotate(-8 62 66)">
+          <rect x="38" y="42" width="48" height="48" rx="12" fill="#f5edd6" />
+          <circle cx="62" cy="60" r="9" fill="#c78d3c" />
+          <path d="M48 78 q14 8 28 0" stroke="#c78d3c" stroke-width="3" stroke-linecap="round" />
+        </g>
+        <g filter={`url(#mgsh-${uid})`} transform="rotate(7 138 60)">
+          <rect x="114" y="36" width="48" height="48" rx="24" fill="#d1a04e" />
+          <text x="138" y="66" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#4a1f10">Om</text>
+        </g>
+        <g filter={`url(#mgsh-${uid})`} transform="rotate(-4 100 108)">
+          <rect x="80" y="90" width="40" height="36" rx="8" fill="#ead9ab" />
+          <path d="M88 108 h24 M92 116 h16" stroke="#8a5a2b" stroke-width="3" stroke-linecap="round" />
+        </g>
+      </svg>
+    </div>
+  )}
+
+  {art === 'divine' && (
+    <div class="absolute inset-0" style="background: linear-gradient(170deg, #2b0e14 0%, #4a1a12 45%, #1c0a08 100%);">
+      <div class="divine-aura absolute inset-0"></div>
+      <svg viewBox="0 0 200 140" class="absolute inset-0 h-full w-full" fill="none">
+        <defs>
+          <linearGradient id={`dv-${uid}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffe9b8" />
+            <stop offset="0.6" stop-color="#d1a04e" />
+            <stop offset="1" stop-color="#8a5f24" />
+          </linearGradient>
+          <filter id={`dvgl-${uid}`} x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="6" result="b" />
+            <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+        </defs>
+        <path d="M100 12 C70 30 58 52 58 84 L58 122 L142 122 L142 84 C142 52 130 30 100 12 Z" stroke={`url(#dv-${uid})`} stroke-width="3.5" fill="#ffffff" opacity="0.05" />
+        <path d="M100 22 C76 37 66 55 66 82 L66 114 L134 114 L134 82 C134 55 124 37 100 22 Z" stroke="#d1a04e" stroke-width="1.2" opacity="0.5" />
+        <ellipse cx="100" cy="72" rx="20" ry="26" fill="#ffd98a" opacity="0.28" filter={`url(#dvgl-${uid})`} />
+        <path d="M100 46 c-6 8 -11 10 -11 20 c0 9 5 14 11 14 c6 0 11 -5 11 -14 c0 -10 -5 -12 -11 -20z" fill={`url(#dv-${uid})`} filter={`url(#dvgl-${uid})`} opacity="0.95" />
+        <circle cx="100" cy="56" r="3.5" fill="#fff3d6" filter={`url(#dvgl-${uid})`} />
+        <path d="M88 92 q12 8 24 0" stroke="#ffd98a" stroke-width="2.5" stroke-linecap="round" opacity="0.8" />
+        <g>
+          <ellipse cx="52" cy="112" rx="9" ry="4" fill="#8a5f24" opacity="0.8" />
+          <path d="M52 108 c-3 -6 3 -6 0 -12" stroke="#ffca66" stroke-width="2.5" stroke-linecap="round" filter={`url(#dvgl-${uid})`} />
+          <ellipse cx="148" cy="112" rx="9" ry="4" fill="#8a5f24" opacity="0.8" />
+          <path d="M148 108 c-3 -6 3 -6 0 -12" stroke="#ffca66" stroke-width="2.5" stroke-linecap="round" filter={`url(#dvgl-${uid})`} />
+        </g>
+        <text x="100" y="134" text-anchor="middle" font-family="Georgia, serif" font-size="9" letter-spacing="3" fill="#d1a04e" opacity="0.85">DIVINE COLLECTION</text>
+      </svg>
+      <style>.divine-aura{background:radial-gradient(ellipse 42% 46% at 50% 52%, rgba(255,201,102,0.32), transparent 70%);animation:divinepulse 4s ease-in-out infinite;}@keyframes divinepulse{0%,100%{opacity:0.7}50%{opacity:1}}</style>
+    </div>
+  )}
+
+  {art === 'returngift' && (
+    <div class="absolute inset-0" style="background: linear-gradient(150deg, #5c1f33 0%, #33101b 60%, #220a12 100%);">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(209,160,78,0.25), transparent 70%);"></div>
+      <svg viewBox="0 0 200 140" class="absolute inset-0 h-full w-full" fill="none">
+        <defs>
+          <filter id={`rgsh-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+          </filter>
+        </defs>
+        <g filter={`url(#rgsh-${uid})`}>
+          <rect x="34" y="78" width="56" height="44" rx="6" fill="#a05f52" />
+          <rect x="34" y="68" width="56" height="16" rx="6" fill="#c78d3c" />
+          <rect x="57" y="68" width="10" height="54" fill="#f4d998" opacity="0.85" />
+          <path d="M62 68 c-10 0 -16 -5 -14 -11 c1.5 -5 10 -3.5 11 3 c1 -6.5 9.5 -8 11 -3 c2 6 -4 11 -8 11" stroke="#f4d998" stroke-width="3" fill="none" stroke-linecap="round" />
+        </g>
+        <g filter={`url(#rgsh-${uid})`}>
+          <rect x="110" y="66" width="62" height="56" rx="6" fill="#6d362e" />
+          <rect x="110" y="54" width="62" height="18" rx="6" fill="#d1a04e" />
+          <rect x="136" y="54" width="10" height="68" fill="#ffe9b8" opacity="0.9" />
+          <path d="M141 54 c-10 0 -16 -5 -14 -11 c1.5 -5 10 -3.5 11 3 c1 -6.5 9.5 -8 11 -3 c2 6 -4 11 -8 11" stroke="#ffe9b8" stroke-width="3" fill="none" stroke-linecap="round" />
+        </g>
+        <circle cx="100" cy="34" r="2.5" fill="#ffd98a" opacity="0.9" />
+        <circle cx="120" cy="26" r="1.8" fill="#ffd98a" opacity="0.7" />
+        <circle cx="82" cy="28" r="1.8" fill="#ffd98a" opacity="0.7" />
+      </svg>
+    </div>
+  )}
+
+  {art === 'corporate' && (
+    <div class="absolute inset-0" style="background: linear-gradient(155deg, #1e2a44 0%, #0e1526 60%, #090e1a 100%);">
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 55% 45% at 70% 25%, rgba(138,180,220,0.16), transparent 65%);"></div>
+      <svg viewBox="0 0 200 140" class="absolute inset-0 h-full w-full" fill="none">
+        <defs>
+          <filter id={`cpsh-${uid}`} x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.55" />
+          </filter>
+        </defs>
+        <rect x="24" y="112" width="152" height="8" rx="4" fill="#2a3648" />
+        <g filter={`url(#cpsh-${uid})`}>
+          <rect x="36" y="72" width="64" height="40" rx="4" fill="#dfe7f2" opacity="0.92" />
+          <rect x="36" y="72" width="64" height="40" rx="4" stroke="#8ab4dc" stroke-width="2" />
+          <text x="68" y="92" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="11" fill="#1e2a44">YOUR LOGO</text>
+          <text x="68" y="104" text-anchor="middle" font-family="Inter, sans-serif" font-size="7" letter-spacing="2" fill="#5a6b85">PVT LTD</text>
+        </g>
+        <g filter={`url(#cpsh-${uid})`}>
+          <path d="M128 66 h28 v14 c0 9 -6 14 -14 14 c-8 0 -14 -5 -14 -14 Z" fill="#d1a04e" opacity="0.9" />
+          <rect x="138" y="96" width="8" height="8" fill="#8a5f24" />
+          <rect x="130" y="106" width="24" height="6" rx="3" fill="#8a5f24" />
+        </g>
+        <rect x="112" y="52" width="30" height="18" rx="3" fill="#8ab4dc" opacity="0.35" />
+      </svg>
+    </div>
+  )}
+
+  <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/15"></div>
+</div>

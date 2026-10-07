@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import { waLink, PHONE_DISPLAY } from '../data/site';
+---
+
+<Base
+  title="About Us | Eternal Hub, Gift Manufacturers"
+  description="Eternal Hub is a manufacturer of premium customized gifts in India. Factory direct acrylic, wooden, LED and metal gifts with honest pricing."
+  path="/about"
+>
+  <section class="bg-maroon-950 py-14 sm:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <p class="section-eyebrow !text-gold-400"><span class="h-1.5 w-1.5 rounded-full bg-gold-400"></span>Our story</p>
+      <h1 class="font-display text-3xl font-bold text-cream-50 sm:text-5xl">We make the gifts.<br />Not just sell them.</h1>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-16">
+    <div class="space-y-6 text-base leading-relaxed text-stone-700">
+      <p>
+        Eternal Hub started with a simple observation: most "customized gift" sellers are just resellers. They take your order, pass it to some unknown workshop, add their margin, and hope the quality holds up. We decided to be the workshop.
+      </p>
+      <p>
+        In our own manufacturing unit, we cut acrylic on precision lasers, print in high definition UV, engrave wood and metal, and assemble LED pieces by hand. When you order from us, your gift moves from machine to finishing table to packing box without ever leaving our sight.
+      </p>
+      <p>
+        That is why our finish is consistent, our timelines are honest, and our prices stay budget friendly. There is no middleman between your idea and the hands that craft it.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-3">
+      {[
+        ['Own manufacturing unit', 'Laser cutting, UV printing, engraving and LED assembly under one roof.'],
+        ['10k+ Instagram family', 'A community that trusts us with their birthdays, weddings and brand launches.'],
+        ['Honest pricing', 'Acrylic work from Rs 599 per sq ft. Quotes shared upfront, no hidden charges.'],
+      ].map(([t, d]) => (
+        <div class="card">
+          <h3 class="font-display text-lg font-bold text-maroon-950">{t}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-stone-600">{d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-cream-100 py-14 sm:py-16">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <h2 class="section-title text-center">Why factory direct matters</h2>
+      <div class="mt-10 grid gap-5 md:grid-cols-2">
+        <div class="card">
+          <h3 class="font-display text-lg font-bold text-maroon-950">The reseller way</h3>
+          <ul class="mt-3 space-y-2 text-sm text-stone-600">
+            <li>Your order passes through 2 to 3 middlemen</li>
+            <li>Each one adds a margin you cannot see</li>
+            <li>Quality depends on whichever workshop is cheapest that week</li>
+            <li>Delays get blamed on "the vendor"</li>
+          </ul>
+        </div>
+        <div class="card !bg-maroon-950 !ring-maroon-900">
+          <h3 class="font-display text-lg font-bold text-gold-300">The Eternal Hub way</h3>
+          <ul class="mt-3 space-y-2 text-sm text-cream-200/85">
+            <li>Your design goes straight to our production team</li>
+            <li>You pay for craft, not commissions</li>
+            <li>Same machines, same finish, every single time</li>
+            <li>We own every deadline we commit to</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 text-center">
+        <a href={waLink('Hi Eternal Hub! I want to order a customised gift.')} target="_blank" rel="noopener" class="btn-whatsapp">Talk to us on WhatsApp</a>
+        <p class="mt-3 text-sm text-stone-500">Or call {PHONE_DISPLAY}</p>
+      </div>
+    </div>
+  </section>
+</Base>

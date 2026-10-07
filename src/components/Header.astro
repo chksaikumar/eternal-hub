@@ -1,0 +1,70 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/products', label: 'Products' },
+  { href: '/business', label: 'Business Branding' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+const current = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-maroon-100/70 bg-cream-50/90 backdrop-blur-xl">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+    <a href="/" class="flex items-center gap-2.5">
+      <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-maroon-800 to-maroon-950 font-display text-lg font-bold text-gold-300 shadow-md">E</span>
+      <span class="font-display text-xl font-bold tracking-tight text-maroon-950">
+        Eternal <span class="text-gold-600">Hub</span>
+      </span>
+    </a>
+    <nav class="hidden items-center gap-1 md:flex">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class={`rounded-full px-4 py-2 text-sm font-medium transition-all ${current === l.href ? 'bg-maroon-100 text-maroon-900' : 'text-stone-600 hover:bg-maroon-50 hover:text-maroon-900'}`}
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-2">
+      <a
+        href="https://wa.me/918522810360?text=Hi%20Eternal%20Hub!%20I%20want%20to%20order%20a%20customised%20gift."
+        target="_blank"
+        rel="noopener"
+        class="hidden rounded-full bg-[#1faa53] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-[#178f45] sm:inline-flex"
+      >
+        Order on WhatsApp
+      </a>
+      <button id="menu-btn" class="flex h-10 w-10 items-center justify-center rounded-full border border-maroon-200 text-maroon-900 md:hidden" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="hidden border-t border-maroon-100 px-4 py-3 md:hidden">
+    <div class="flex flex-col gap-1">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class={`rounded-xl px-4 py-2.5 text-sm font-medium ${current === l.href ? 'bg-maroon-100 text-maroon-900' : 'text-stone-600 hover:bg-maroon-50'}`}
+        >
+          {l.label}
+        </a>
+      ))}
+      <a
+        href="https://wa.me/918522810360?text=Hi%20Eternal%20Hub!%20I%20want%20to%20order%20a%20customised%20gift."
+        target="_blank"
+        rel="noopener"
+        class="mt-2 rounded-xl bg-[#1faa53] px-4 py-3 text-center text-sm font-semibold text-white"
+      >
+        Order on WhatsApp
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  btn?.addEventListener('click', () => nav?.classList.toggle('hidden'));
+</script>
